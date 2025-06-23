@@ -1,0 +1,11 @@
+C:\Users\Idol\source\repos\E-commerce\codeCoverage\bin\Debug\net8.0\codeCoverage.deps.json
+C:\Users\Idol\source\repos\E-commerce\codeCoverage\bin\Debug\net8.0\codeCoverage.dll
+C:\Users\Idol\source\repos\E-commerce\codeCoverage\bin\Debug\net8.0\codeCoverage.pdb
+C:\Users\Idol\source\repos\E-commerce\codeCoverage\obj\Debug\net8.0\codeCoverage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Idol\source\repos\E-commerce\codeCoverage\obj\Debug\net8.0\codeCoverage.AssemblyInfoInputs.cache
+C:\Users\Idol\source\repos\E-commerce\codeCoverage\obj\Debug\net8.0\codeCoverage.AssemblyInfo.cs
+C:\Users\Idol\source\repos\E-commerce\codeCoverage\obj\Debug\net8.0\codeCoverage.csproj.CoreCompileInputs.cache
+C:\Users\Idol\source\repos\E-commerce\codeCoverage\obj\Debug\net8.0\codeCoverage.dll
+C:\Users\Idol\source\repos\E-commerce\codeCoverage\obj\Debug\net8.0\refint\codeCoverage.dll
+C:\Users\Idol\source\repos\E-commerce\codeCoverage\obj\Debug\net8.0\codeCoverage.pdb
+C:\Users\Idol\source\repos\E-commerce\codeCoverage\obj\Debug\net8.0\ref\codeCoverage.dll

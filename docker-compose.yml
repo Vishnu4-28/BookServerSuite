@@ -1,0 +1,31 @@
+networks:
+  Book:
+
+services:
+  e-commerce.server:
+    container_name: BookApplication-app
+    image: ${DOCKER_REGISTRY-}ecommerceserver
+    build:
+      context: .
+      dockerfile: E-commerce.Server/Dockerfile
+    ports:
+      - 8001:8080
+    depends_on:
+      - BookInventoryApplication
+    environment:
+      - DB_HOST=BookInventoryApplication
+      - DB_NAME=BookInventoryApplication
+      - DB_SA_PASSWORD=vishnu@123
+    networks:
+      - Book
+
+  BookInventoryApplication:
+    container_name: BookApplicationDb
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - 8002:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=vishnu@123
+    networks:
+      - Book

@@ -1,0 +1,73 @@
+name: dockercompose2376590377536187509
+services:
+  BookInventoryApplication:
+    container_name: BookApplicationDb
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: vishnu@123
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    networks:
+      Book: null
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "8002"
+        protocol: tcp
+  e-commerce.server:
+    build:
+      context: C:\Users\Idol\source\repos\E-commerce
+      dockerfile: E-commerce.Server/Dockerfile
+    container_name: BookApplication-app
+    depends_on:
+      BookInventoryApplication:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+      DB_HOST: BookInventoryApplication
+      DB_NAME: BookInventoryApplication
+      DB_SA_PASSWORD: vishnu@123
+    image: ecommerceserver
+    networks:
+      Book: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8001"
+        protocol: tcp
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\Idol\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\Idol\AppData\Roaming/Microsoft/UserSecrets
+        target: /root/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\Idol\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\Idol\AppData\Roaming/ASP.NET/Https
+        target: /root/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+networks:
+  Book:
+    name: dockercompose2376590377536187509_Book

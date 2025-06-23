@@ -1,0 +1,11 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "E-commerce.Server\\E-commerce.Server.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
